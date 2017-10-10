@@ -76,7 +76,9 @@ public class TestExecutor4 {
                     }
 
                     if (totalCount % 1000 == 1 || isFailed) {
-                        ++failCount;
+                        if (isFailed) {
+                            ++failCount;
+                        }
                         Log.e(TAG, "totalCount: " + totalCount + ", failCount: " + failCount);
                     }
                 }
