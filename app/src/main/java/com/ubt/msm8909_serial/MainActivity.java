@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.ubt.msm8909_serial.test.TestExecutor4;
 import com.ubt.msm8909_serial.test.TestExecutor5;
+import com.ubt.msm8909_serial.test.TestExecutor6;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnStart.setEnabled(true);
         mBtnStop.setEnabled(false);
 
-        TestExecutor5.get().setContext(getApplicationContext());
+        TestExecutor6.get().setActivity(this);
     }
 
     @Override
@@ -39,11 +40,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
 
-        if (keyCode == KeyEvent.KEYCODE_S) {
-            testKeyCodeS();
-        } else if (keyCode == KeyEvent.KEYCODE_E) {
-            testKeyCodeE();
-        }
+//        if (keyCode == KeyEvent.KEYCODE_S) {
+//            testKeyCodeS();
+//        } else if (keyCode == KeyEvent.KEYCODE_E) {
+//            testKeyCodeE();
+//        }
 
         return super.onKeyUp(keyCode, event);
     }
@@ -67,13 +68,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void start() {
         mBtnStart.setEnabled(false);
-        mBtnStop.setEnabled(true);
-        TestExecutor5.get().start();
+        mBtnStop.setEnabled(false);
+//        TestExecutor5.get().start();
+        TestExecutor6.get().start();
     }
 
     private void stop() {
-        mBtnStart.setEnabled(true);
-        mBtnStop.setEnabled(false);
-        TestExecutor5.get().stop();
+//        mBtnStart.setEnabled(true);
+//        mBtnStop.setEnabled(false);
+//        TestExecutor5.get().stop();
     }
 }
