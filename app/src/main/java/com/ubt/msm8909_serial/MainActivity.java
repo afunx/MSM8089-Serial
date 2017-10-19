@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ubt.msm8909_serial.test.TestExecutor4;
+import com.ubt.msm8909_serial.test.TestExecutor5;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,13 +27,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mBtnStart.setEnabled(true);
         mBtnStop.setEnabled(false);
+
+        TestExecutor5.get().setContext(getApplicationContext());
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        TestExecutor4.get().stop();
     }
 
     @Override
@@ -48,11 +49,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void testKeyCodeE() {
-        TestExecutor4.get().stop();
+        TestExecutor5.get().stop();
     }
 
     private void testKeyCodeS() {
-        TestExecutor4.get().start();
+        TestExecutor5.get().start();
     }
 
     @Override
@@ -67,12 +68,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void start() {
         mBtnStart.setEnabled(false);
         mBtnStop.setEnabled(true);
-        TestExecutor4.get().start();
+        TestExecutor5.get().start();
     }
 
     private void stop() {
         mBtnStart.setEnabled(true);
         mBtnStop.setEnabled(false);
-        TestExecutor4.get().stop();
+        TestExecutor5.get().stop();
     }
 }
